@@ -1,0 +1,38 @@
+# Byte-code files
+*.pyc
+__pycache__/
+# We recommend you do not commit these files to your source control if you are using a python environment
+# Check the Python official documentation for more information
+# (https://docs.python.org)
+#
+# Compiled Python files
+*.py[cod]
+
+# Temporary files
+*~
+*.swp
+*.swo
+
+# Directories
+.venv/
+venv/
+env/
+ENV/
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+.coverage
+.mypy_cache/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+htmlcov/
+.tox/
+
+# Editors and IDEs
+.idea/  # Pycharm
+.vscode/ # VS Code
+*.sublime-project
+*.sublime-workspace
