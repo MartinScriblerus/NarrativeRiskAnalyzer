@@ -5,3 +5,4 @@ torch
 pydantic
 httpx
 beautifulsoup4
+tf-keras

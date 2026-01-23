@@ -1,8 +1,10 @@
 import json
+from pathlib import Path
 from sentence_transformers import SentenceTransformer, util
 
-# Load ticks dataset
-with open("app/data/ticks_dataset.json") as f:
+# Load ticks dataset - use path relative to this file
+data_path = Path(__file__).parent / "data" / "ticks_dataset.json"
+with open(data_path) as f:
     tick_examples = json.load(f)
 
 # Initialize embedding model

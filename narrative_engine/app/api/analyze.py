@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-import torch
-from app.core.embeddings import embed_text, tick_embeddings
+# Note: This file may need to be updated based on actual embeddings implementation
+# from app.embeddings import embed_text, tick_embeddings
 
 router = APIRouter(prefix="/analyze", tags=["analysis"])
 
