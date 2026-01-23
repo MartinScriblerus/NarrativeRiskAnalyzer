@@ -1,0 +1,165 @@
+/* Theme tokens + base rules for pokemon-ui (paste into packages/pokemon-ui/src/styles/global.css) */
+
+:root{
+  /* Colors */
+  --color-primary: #fff;
+  --color-secondary: #000;  
+  /* --color-primary: hsla(214, 62%, 21%, 1);
+  --color-secondary: hsla(42, 90%, 56%, 1); */
+  --color-tertiary: hsla(42, 90%, 56%, 1);
+  /* --color-text-tertiary: rgba(55, 65, 81, 1);
+  --color-primary: rgba(79, 163, 227, 1);
+  --color-secondary: rgba(244, 196, 48, 1); */
+  /* --color-color-secondary: rgba(232, 93, 79, 1); */
+  --color-muted: rgba(107, 114, 128, 1);
+  --color-ghost: rgba(243, 244, 246, 1);
+  --color-white: rgba(255, 255, 255, 1);
+
+  --color-hero-bg: hsla(214, 62%, 21%, 1);
+  --color-accent:rgba(107, 114, 128, 1);
+
+  --pre-bg: rgba(55, 65, 81, 1);
+  --pre-color: rgba(229, 231, 235, 1);
+
+  /* Spacing scale */
+  --space-0: 0.25rem;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.5rem;
+
+  /* Typography */
+  --typo-display-size: 3rem;
+  --typo-display-line-height: 1;
+  --typo-subtitle-size: 1.875rem;
+  --typo-subtitle-line-height: 2.25rem;
+  --typo-hero-h2-size: 1.5rem;
+  --typo-h2-size: 1.25rem;
+  --typo-body-size: 1rem;
+  --typo-caption-size: 0.75rem;
+
+  /* Motion & shadow TEST TEST*/
+  --transition-duration: 150ms;
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+
+  /* Surface */
+  --surface-bg: var(--color-white);
+  --surface-foreground: var(--color-primary);
+}
+
+/* Base / Reset */
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  line-height: 1.5;
+  tab-size: 4;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+  color: var(--surface-foreground);
+}
+h1, h2, p, pre { margin: 0; }
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: currentColor;
+}
+
+/* Utilities */
+.shadow { box-shadow: var(--shadow-md); }
+.rounded { border-radius: var(--radius-lg); }
+.wrapper { width: 100%; }
+
+/* Container */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  /* max-width: 768px;
+  padding-bottom: var(--space-6);
+  padding-left: var(--space-2);
+  padding-right: var(--space-2); */
+  color: var(--color-primary);
+  width: 100%;
+}
+
+/* Hero / Welcome (kept visually same, now using tokens) */
+#welcome { margin-top: 2.5rem; }
+#welcome h1 {
+  font-size: var(--typo-display-size);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: var(--typo-display-line-height);
+}
+#welcome span {
+  display: block;
+  font-size: var(--typo-subtitle-size);
+  font-weight: 300;
+  line-height: var(--typo-subtitle-line-height);
+  margin-bottom: 0.5rem;
+}
+
+/* Hero */
+#hero {
+  align-items: center;
+  /* background-color: var(--color-hero-bg); */
+  border: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: var(--space-8);
+  color: var(--surface-foreground);
+}
+#hero .text-container {
+  color: var(--color-white);
+  padding: var(--space-6) var(--space-4);
+}
+#hero .text-container h2 {
+  font-size: var(--typo-hero-h2-size);
+  line-height: 2rem;
+  position: relative;
+}
+#hero .text-container h2 svg { color: var(--color-accent); height: 2rem; left: -0.25rem; position: absolute; top: 0; width: 2rem; }
+#hero .text-container h2 span { margin-left: 2.5rem; }
+#hero .text-container a {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  display: inline-block;
+  margin-top: var(--space-3);
+  padding: 1rem 2rem;
+  text-decoration: inherit;
+}
+
+/* Middle / columns */
+#middle-content {
+  align-items: flex-start;
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-8);
+}
+
+/* List links/buttons and pre blocks reuse tokens (omitted here for brevity) */
+.list-item-link { align-items:center; border-radius:var(--radius-md); display:flex; margin-top:var(--space-1); padding:1rem; transition:var(--transition-duration) var(--transition-ease); width:100%; }
+.list-item-link:hover { color:var(--color-white); background-color:var(--color-accent); }
+pre { background-color: var(--pre-bg); border-radius: var(--radius-sm); color: var(--pre-color); padding: 0.5rem 0.75rem; overflow: auto; }
+@media screen and (min-width: 768px) {
+  #hero { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #middle-content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

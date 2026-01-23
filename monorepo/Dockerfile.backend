@@ -1,0 +1,33 @@
+# Dockerfile for backend (optional - for production)
+FROM node:20-alpine AS base
+
+# Install pnpm
+RUN npm install -g pnpm@8.15.8
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY packages/pokemon-user-backend/package.json ./packages/pokemon-user-backend/
+COPY nx.json tsconfig.base.json ./
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy source code
+COPY packages/pokemon-user-backend ./packages/pokemon-user-backend
+
+# Build
+RUN pnpm exec nx build pokemon-user-backend
+
+# Production stage
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=base /app/dist ./dist
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/package.json ./
+COPY --from=base /app/pnpm-lock.yaml ./
+
+EXPOSE 3000
+
+CMD ["node", "dist/packages/pokemon-user-backend/main.js"]

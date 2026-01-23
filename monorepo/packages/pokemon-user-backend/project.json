@@ -1,0 +1,28 @@
+{
+  "name": "pokemon-user-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/pokemon-user-backend/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": [
+        "build"
+      ],
+      "options": {
+        "buildTarget": "pokemon-user-backend:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pokemon-user-backend:build:development"
+        },
+        "production": {
+          "buildTarget": "pokemon-user-backend:build:production"
+        }
+      }
+    }
+  }
+}
